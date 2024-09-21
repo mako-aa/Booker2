@@ -1,13 +1,16 @@
+<!-- sidebar -->
+<div class="sidebar">
+  <%= render 'shared/user', user: @user %>
+  <%= render 'shared/new', book: @book %>
+</div>
+
+
 <% @books.each do |book| %>
   <div>
     
     <p><%= image_tag book.user.get_profile_image(100,100)  %></p>
-    
-    <%= link_to book_path(book.id) do %>
-      <p> <%= book.title%> </p>
-    <% end %>
-    
-    <p><%= book.opinion%> </p>
+
     <p><%= book.user.name %></p>
+    <p><%= link_to 'show', user_path(book.user) %></p>
   </div>
 <% end %>
