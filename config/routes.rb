@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'homes#top'
-  get 'homes/top'
   devise_for :users
+  root to: 'homes#top'
   
-  resources :book, only: [:new, :index, :show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #9 ルーティングを一括して自動生成してくれる
+  resources :books, only: [:new, :create,:index, :show]
+  
+  get 'homes/about', to:'homes#about', as: 'about'
+  
+  
 end
