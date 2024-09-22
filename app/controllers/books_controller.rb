@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   #10
   def new
     @book = Book.new
+    @user = current_user
   end 
   
   #投稿データの保存
@@ -13,12 +14,15 @@ class BooksController < ApplicationController
   end 
   
   def index
-    @books = Book.all
+    @book = Book.new
     @user = current_user
+    # すべての本を取得し、ユーザー情報も含める
+    @books = Book.all.includes(:user)
   end 
   
   def show
     @book = Book.find(params[:id])
+    @user = current_user
   end
   
   def destroy

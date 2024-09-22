@@ -10,7 +10,8 @@
     
     <p><%= image_tag book.user.get_profile_image(100,100)  %></p>
 
-    <p><%= book.user.name %></p>
-    <p><%= link_to 'show', user_path(book.user) %></p>
+    <p><%= link_to 'book.title' %></p>
+    <p><%= book.opinion %></p>
+
   </div>
 <% end %>

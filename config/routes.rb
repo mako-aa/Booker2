@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   #9 ルーティングを一括して自動生成してくれる
   resources :books, only: [:new, :create, :index, :show, :destroy]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   
   get 'homes/about', to:'homes#about', as: 'about'
   
