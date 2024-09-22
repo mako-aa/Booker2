@@ -1,5 +1,12 @@
+<!-- sidebar -->
+<div class="sidebar">
+  <%= render 'shared/user', user: @user %>
+  <%= render 'shared/new', book: @book %>
+</div>
+
+
 <div>
-  <p><%= image_tag @post_image.user.get_profile_image(100,100) %></p>
+  <p><%= image_tag @user.get_profile_image(100,100) %></p>
   <p><%= @book.user.name %></p>
   
   <%= link_to book_path(@book.id) do %>
