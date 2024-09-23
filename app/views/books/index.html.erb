@@ -1,33 +1,28 @@
-<div class="container">
-  <div class="row">
-    <!-- sidebar -->
-    <div class="col-md-3">
-      <div class="sidebar">
-        <%= render 'shared/user', user: @user %>
-        <%= render 'shared/new', book: @book %>
-      </div>
-    </div>
-    
-    
-    <!-- Books-->
-    <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table">
-        <tr>
-          <th></th>
-          <th class="nav-list">Title</th>
-          <th class="nav-list">Body</th>
-        </tr>
-        <% @books.each do |book| %>
-        <tr>
-          <td><%= image_tag book.user.get_profile_image(100,100)  %></td>
-          <td><%= link_to book.title, book_path(book) %></td>
-          <td><%= book.opinion %></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-    
+
+<!-- sidebar -->
+<div class="col-md-3">
+  <div class="sidebar">
+    <%= render 'shared/user', user: @user %>
+    <%= render 'shared/new', book: @book %>
   </div>
 </div>
 
+
+<!-- Books-->
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th class="nav-list">Title</th>
+      <th class="nav-list">Body</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= image_tag book.user.get_profile_image(100,100)  %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.opinion %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
