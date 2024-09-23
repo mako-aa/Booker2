@@ -1,22 +1,28 @@
 <!-- sidebar -->
-<div class="sidebar">
-  <%= render 'shared/user', user: @user %>
-  <%= render 'shared/new', book: @book %>
+<div class="col-md-3">
+  <div class="sidebar">
+    <%= render 'shared/user', user: @user %>
+    <%= render 'shared/new', book: @book %>
+  </div>
 </div>
 
 
-
-
-<!-- ユーザーの投稿一覧 -->
-
-<% @books.each do |book| %>
-  <div>
-    
-    <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-    <%= link_to book_path(book.id) do %>
-      <p> <%= book.title%> </p>
+<!-- 自分の投稿一覧 -->
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th class="nav-list">Title</th>
+      <th class="nav-list">Opinion</th>
+    </tr>
+   
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.opinion %></td>
+    </tr>
     <% end %>
-    <p><%= book.opinion%> </p>
-    <p><%= book.user.name %></p>
-  </div>
-<% end %>
+  </table>
+</div>
