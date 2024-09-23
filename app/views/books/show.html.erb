@@ -15,23 +15,23 @@
         <div>
           <%= image_tag @user.get_profile_image(100,100) %>
           <p>
-            <%= link_to @book.user.name, books_path %>
+            <%= link_to @book2.user.name, books_path %>
           </p>
         </div>
       </td>
       
-      <td><%= link_to @book.title, book_path(@book.id) %></td>
-      <td><%= @book.opinion%></td>
+      <td><%= link_to @book2.title, book_path(@book2.id) %></td>
+      <td><%= @book2.opinion%></td>
       
-      <% if @book.user == current_user %>
+      <% if @book2.user == current_user %>
       <td>
           <button type="button" class="btn btn-success btn-sm">
-            <%= link_to "Edit", edit_book_path(@book), class:"text-white" %>
+            <%= link_to "Edit", edit_book_path(@book2), class:"text-white" %>
           </button>
       </td>
       <td>
           <button type="button" class="btn btn-danger btn-sm">
-            <%= link_to "Destroy", book_path(@book), method: :delete, class:"text-white" %>
+            <%= link_to "Destroy", book_path(@book2), method: :delete, class:"text-white" %>
           </button>
       </td>
       <% end %>
