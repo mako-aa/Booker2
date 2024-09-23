@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     #サインアウト後の遷移ページ
     def after_sign_out_path_for(resource)
         homes_top_path
+        
     end
   
     protected

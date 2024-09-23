@@ -89,6 +89,11 @@
     </header>
     
     <div class="container m-3 mx-auto">
+      <div class="mb-3">
+        <% flash.each do |message_type, message| %>
+          <div class="flash-message <%= message_type %>"><%= message %></div>
+        <% end %>
+      </div>
       <div class="row">
         <%= yield %>
       </div>
