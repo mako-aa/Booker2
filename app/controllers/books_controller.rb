@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   #10
   def new
     @book = Book.new
@@ -24,8 +27,8 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @user = current_user
-    # すべての本を取得し、ユーザー情報も含める
-    @books = Book.all.includes(:user)
+    # すべての本を取得
+    @books = Book.all
   end 
   
   def show
@@ -66,5 +69,12 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end 
+
+  def ensure_correct_user
+    @book = Book.find(params[:id])
+    unless @book.user == current_user
+      redirect_to books_path
+    end
+  end
   
 end
