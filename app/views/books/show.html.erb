@@ -15,13 +15,13 @@
         <div>
           <%= image_tag @user.get_profile_image(100,100) %>
           <p>
-            <%= link_to @book2.user.name, books_path %>
+            <%= link_to @book2.user.name, user_path(@book2.user) %>
           </p>
         </div>
       </td>
       
       <td><%= link_to @book2.title, book_path(@book2.id) %></td>
-      <td><%= @book2.opinion%></td>
+      <td><%= @book2.body%></td>
       
       <% if @book2.user == current_user %>
       <td>
